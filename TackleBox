@@ -1,0 +1,9 @@
+<NotepadPlus>
+    <Project name="TackleBox">
+        <File name="FlySwatter.xml" />
+        <File name="TackleBox.lua" />
+        <File name="TackleBox.session" />
+        <File name="TackleBox.txt" />
+        <File name="TackleBox.xml" />
+    </Project>
+</NotepadPlus>

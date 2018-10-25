@@ -1,0 +1,47 @@
+<!-- Use: Personal custom frame for debugging -->
+<!-- Version: 0.0.2 -->
+<!-- Last Updated: 2018-10-24 -->
+<!-- See EOF for notes -->
+
+<GuiXml>
+	<Controls>
+		<TopLevelControl 
+			name="FlySwatter" 
+			mouseEnabled="true"
+			moveable="true"
+			clampedToScreen="true"
+			>
+			<Dimensions
+				x="500"
+				y="300"
+				/>
+			<Anchor
+				point="BOTTOM"
+				relativeTo="GuiRoot"
+				relativePoint="CENTER"
+				offsetY="-20" 
+				/>
+			<Controls>
+				<Label 
+					name="FlySwatterLabel" 
+					font="ZoFontChat" 
+					color="CFDCBD" 
+					wrapMode="ELLIPSIS" 
+					verticalAlignment="TOPLEFT"
+					inheritAlpha="true" 
+					horizontalAlignment="CENTER" 
+					text="Text Window"
+					>
+				<AnchorFill />
+				</Label>
+			</Controls>
+		</TopLevelControl>
+	</Controls>
+</GuiXml>
+
+<!--
+
+Purpose: This container file is intended to display a movable debugging screen that can be shown or hidden as needed.
+LUA Functions Called: TackleBox.OnIndicatorMoveStop() which saves the latest location of the container into the saved variables
+Future: Use this to develop a debugging / tracking set of functions called FlySwatter.
+-->

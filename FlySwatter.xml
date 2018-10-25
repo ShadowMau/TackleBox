@@ -1,0 +1,39 @@
+<!-- Use: Personal custom frame for debugging -->
+<!-- Version: 0.0.1 -->
+<!-- Last Updated: 2018-10-20 -->
+<!-- See EOF for notes -->
+
+<GuiXml>
+	<Controls>
+		<TopLevelControl name="FlySwatter" mouseEnabled="true" moveable="true" clampToScreen="true", hidden="true">
+			<!-- Specifies the size of the control -->
+			<Dimensions x="200 y="25" />
+			
+			<!-- Default position for the control -->
+			<Anchor point="BOTTOM" relativeTo="GuiRoot" relativePoint="CENTER" offsetY="-20) />
+			
+			<OnMoveStop>
+				TackleBox.OnIndicatorMoveStop()
+			</OnMoveStop>
+			
+			<!-- A child container which fits within the TopLevelControl -->
+			<Controls>
+				<!-- The $(parent) placeholder is filled in by ESO when it loads the template -->
+				<!-- Label will have the name of the [CallingAddOn]Label -->
+				<!-- This differentiates it from all the other container witin the UI -->
+				<Label name="$(parent)Label" width="200" height="25" font="ZoFontWinH1"
+					inheritAlpha="true" color="FF0000" wrapMode="TRUNCATE" vertialalignment="TOP"
+					horizontalAlighment="CENTER" text="Fighting!">
+				<Anchor point="TOP" relativeTo="$(parent)" relativePoint="TOP" />
+				</Label>
+			</Controls>
+		</TopLevelControl>
+	</Controls>
+</GuiXml>
+
+<!--
+
+Purpose: This container file is intended to display a movable debugging screen that can be shown or hidden as needed.
+LUA Functions Called: TackleBox.OnIndicatorMoveStop() which saves the latest location of the container into the saved variables
+Future: Use this to develop a debugging / tracking set of functions called FlySwatter.
+-->
