@@ -10,6 +10,7 @@
 			mouseEnabled="true"
 			moveable="true"
 			clampedToScreen="true"
+			hidden="true"
 			>
 			<Dimensions
 				x="500"

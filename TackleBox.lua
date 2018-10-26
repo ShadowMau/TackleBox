@@ -13,29 +13,30 @@ TackleBox.name = "TackleBox"
 function AddonLoaded(event, addonName)
 	if addonName == TackleBox.name then
 		Initialize()
+		-- ESO_API_CALL
+		EVENT_MANAGER:UnregisterForEvent("TackleBox", EVENT_ADD_ON_LOADED)
 	end
 end
 
 --Initiaze the rest of the addon settings and read in any saved variables
 function Initialize()
-TackleBox.toggle = false -- Toggle for displaying message - should get weeded out as we go along.
-TackleBox.quotes = { -- A group of quotes to display as part of the initial testing and learning process
-	"A leader is best when people barely know he exists, when his work is done, his aim fulfilled, they will say: we did it ourselves. —Lao Tzu",
-	"Where there is no vision, the people perish. —Proverbs 29:18",
-	"I must follow the people. Am I not their leader? —Benjamin Disraeli",
-	"You manage things; you lead people. —Rear Admiral Grace Murray Hopper",
-	"The first responsibility of a leader is to define reality. The last is to say thank you. In between, the leader is a servant. —Max DePree",
-	"Leadership is the capacity to translate vision into reality. —Warren Bennis",
-	"Lead me, follow me, or get out of my way. — General George Patton",
-	"Before you are a leader, success is all about growing yourself. When you become a leader, success is all about growing others. —Jack Welch"
-}
-
+	TackleBox.toggle = true -- Toggle for displaying message - should get weeded out as we go along.
+	TackleBox.quotes = { -- A group of quotes to display as part of the initial testing and learning process
+		"A leader is best when people barely know he exists, when his work is done, his aim fulfilled, they will say: we did it ourselves. —Lao Tzu",
+		"Where there is no vision, the people perish. —Proverbs 29:18",
+		"Anyone, anywhere, can make a positive difference. Mark Sanborn",
+		"You manage things; you lead people. —Rear Admiral Grace Murray Hopper",
+		"The first responsibility of a leader is to define reality. The last is to say thank you. In between, the leader is a servant. —Max DePree",
+		"Leadership is the capacity to translate vision into reality. —Warren Bennis",
+		"Lead me, follow me, or get out of my way. — General George Patton",
+		"Before you are a leader, success is all about growing yourself. When you become a leader, success is all about growing others. —Jack Welch"
+	}
+	saveData = ZO_SavedVars:NewAccountWide("TackleBox_Data", 1)
 end
 
 -- Get a random elemnt from the array passed 
 local function GetRandomElement(array)
-	local rand = math.random() * #array
-	local index = 1 + math.floor(rand)
+	index = math.random(#array)
 	return array[index]
 end
 
@@ -75,7 +76,7 @@ function ProcessSlash(extra)
 	end
 end
 
--- ESO_API_CALL
+-- ESO_API_CALL 
 -- Register our slash command with the UI
 SLASH_COMMANDS["/tb"] = ProcessSlash
 

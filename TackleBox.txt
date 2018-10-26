@@ -3,7 +3,7 @@
 ## Version: 0.0.2
 ## Author: |cFF5FF5ShadowMau|r
 ## APIVersion: 1000023
-## SavedVariables: TackleBoxSavedVariables
+## SavedVariables: TackleBox_Data
 
 
 ## This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates. 
